@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EnvForge — Environment Manager</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <span class="logo">⚙</span>
+    <span class="title">EnvForge</span>
+    <span class="subtitle">reproducible environments</span>
+  </div>
+  <div class="actions">
+    <button id="btn-capture" class="btn btn-primary">+ Capture</button>
+    <button id="btn-refresh" class="btn">↻ Refresh</button>
+  </div>
+</header>
+
+<main>
+  <aside class="sidebar">
+    <div class="panel">
+      <h3>Profiles</h3>
+      <div id="profile-list" class="profile-list"></div>
+    </div>
+    <div class="panel">
+      <h3>Actions</h3>
+      <div class="action-buttons">
+        <button id="btn-drift" class="btn btn-block" disabled>Drift Check</button>
+        <button id="btn-compare" class="btn btn-block" disabled>Compare…</button>
+        <button id="btn-bootstrap" class="btn btn-block" disabled>Bootstrap</button>
+        <button id="btn-delete" class="btn btn-danger btn-block" disabled>Delete</button>
+      </div>
+    </div>
+  </aside>
+
+  <section class="content">
+    <div class="tabs">
+      <button class="tab active" data-tab="graph">Graph</button>
+      <button class="tab" data-tab="detail">Details</button>
+      <button class="tab" data-tab="drift">Drift</button>
+      <button class="tab" data-tab="compare">Compare</button>
+    </div>
+
+    <div id="tab-graph" class="tab-content active">
+      <div class="graph-toolbar">
+        <span id="graph-stats" class="graph-stats"></span>
+        <div class="graph-legend">
+          <span class="legend-item"><span class="dot dot-os"></span>OS</span>
+          <span class="legend-item"><span class="dot dot-shell"></span>Shell</span>
+          <span class="legend-item"><span class="dot dot-tool"></span>Tool</span>
+          <span class="legend-item"><span class="dot dot-mgr"></span>Manager</span>
+          <span class="legend-item"><span class="dot dot-pkg"></span>Package</span>
+        </div>
+      </div>
+      <canvas id="graph-canvas"></canvas>
+    </div>
+
+    <div id="tab-detail" class="tab-content">
+      <div id="detail-content" class="detail-content">
+        <p class="placeholder">Select a profile to view details.</p>
+      </div>
+    </div>
+
+    <div id="tab-drift" class="tab-content">
+      <div id="drift-content" class="drift-content">
+        <p class="placeholder">Select a profile and click "Drift Check" to compare against current environment.</p>
+      </div>
+    </div>
+
+    <div id="tab-compare" class="tab-content">
+      <div id="compare-content" class="compare-content">
+        <p class="placeholder">Select two profiles to compare.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <h3 id="modal-title">Modal</h3>
+    <div id="modal-body"></div>
+    <div class="modal-actions">
+      <button id="modal-cancel" class="btn">Cancel</button>
+      <button id="modal-confirm" class="btn btn-primary">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  EnvForge · local-first environment management · zero dependencies
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

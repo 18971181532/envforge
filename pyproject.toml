@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "envforge"
+version = "0.1.0"
+description = "Local-first reproducible development environment manager — capture, compare, detect drift, and bootstrap"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "EnvForge Contributors" }]
+keywords = ["environment", "provenance", "reproducibility", "devops", "dotfiles", "configuration"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: System :: Systems Administration",
+]
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+envforge = "envforge.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["envforge*"]
+
+[tool.setuptools.package-data]
+envforge = ["web/*.html", "web/*.css", "web/*.js"]
